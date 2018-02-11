@@ -1,0 +1,6 @@
+#!/usr/bin/expect
+set password [lindex $argv 0];
+set file [lindex $argv 1];
+spawn ./enc.sh "$file"
+expect "EncFS Password:" { send "$password\r" }
+interact

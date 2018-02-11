@@ -1,0 +1,63 @@
+{
+  "name": "encfs-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "@std/esm": "cjs",
+  "scripts": {
+    "start": "node -r @std/esm .",
+    "dev": "nodemon --exec \"node -r @std/esm\" ."
+  },
+  "dependencies": {
+    "@std/esm": "^0.21.1",
+    "dotenv-safe": "^4.0.4",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "babel-jest": "^22.1.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-zeal": "^1.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "nodemon": "^1.14.12",
+    "prettier": "^1.10.2"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true,
+      "jest": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module"
+    },
+    "extends": [
+      "airbnb",
+      "prettier"
+    ],
+    "rules": {
+      "no-param-reassign": [
+        "error",
+        {
+          "props": false
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "parser": "babylon",
+    "printWidth": 120,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
+  }
+}
