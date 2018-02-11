@@ -13,7 +13,9 @@ const exec = async path => {
     const { stdout, stderr } = await execAwait(`./simple.sh "${path}"`);
     const parts = (stdout || '').replace(/[\r\n]+/, '').split('/');
 
-    console.log(JSON.stringify({ stdout, stderr }, null, 2));
+    if ((stderr || '').trim()) {
+      return { path, error: stderr };
+    }
 
     return { path, encoded: parts[parts.length - 1] };
   } catch (e) {
@@ -26,7 +28,6 @@ const getPathArray = path => (Array.isArray(path) ? path : [path]);
 const app = express();
 
 app.use(express.json());
-// app.use(express.urlencoded());
 
 app.get('/', async (req, res) => {
   const { p: path } = req.query;
