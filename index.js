@@ -10,8 +10,10 @@ const execAwait = promisify(execCb);
 
 const exec = async path => {
   try {
-    const { stdout } = await execAwait(`./simple.sh "${path}"`);
+    const { stdout, stderr } = await execAwait(`./simple.sh "${path}"`);
     const parts = (stdout || '').replace(/[\r\n]+/, '').split('/');
+
+    console.log(JSON.stringify({ stdout, stderr }, null, 2));
 
     return { path, encoded: parts[parts.length - 1] };
   } catch (e) {
