@@ -1,2 +1,2 @@
 #!/bin/bash
-"$ENCFSCTL_BIN" -S encode . "$1"
+"$ENCFSCTL_BIN" encode . "$1"
