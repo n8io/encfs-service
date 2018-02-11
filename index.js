@@ -29,6 +29,12 @@ const app = express();
 
 app.use(express.json());
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.get('/', async (req, res) => {
   const { p: path } = req.query;
 
@@ -54,6 +60,8 @@ const isValidBody = paths => Array.isArray(paths) && paths.length > 0 && !paths.
 app.post('/', async (req, res) => {
   const paths = req.body;
 
+  console.log(paths);
+
   if (!isValidBody(paths)) {
     return res.status(400).json({ error: `No paths were provided` });
   }
@@ -72,4 +80,4 @@ app.post('/', async (req, res) => {
 const { PORT = 3000 } = process.env; // eslint-disable-line no-process-env
 
 // eslint-disable-next-line no-console
-app.listen(PORT, () => console.log('Example app listening on port http://localhost:3000'));
+app.listen(PORT, () => console.log(`App listening on port http://localhost:${PORT}`));
