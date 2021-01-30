@@ -5,17 +5,17 @@
   "license": "MIT",
   "@std/esm": "cjs",
   "scripts": {
-    "start": "node -r @std/esm .",
-    "dev": "nodemon --exec \"node -r @std/esm\" ."
+    "start": "node -r esm .",
+    "dev": "nodemon --exec \"node -r esm\" ."
   },
   "dependencies": {
-    "@std/esm": "^0.21.1",
-    "dotenv-safe": "^4.0.4",
-    "express": "^4.16.2"
+    "dotenv-safe": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
-    "babel-jest": "^22.1.0",
+    "babel-jest": "^26.1.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -25,7 +25,7 @@
     "eslint-plugin-jest": "^21.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
-    "nodemon": "^1.14.12",
+    "nodemon": "^2.0.4",
     "prettier": "^1.10.2"
   },
   "eslintConfig": {
